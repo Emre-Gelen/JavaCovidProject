@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <Pane prefHeight="984.0" prefWidth="1392.0">
+         <children>
+            <Button layoutX="1020.0" layoutY="31.0" mnemonicParsing="false" onAction="#getData" prefHeight="40.0" prefWidth="130.0" text="Get Data" />
+            <TextField fx:id="txt" layoutX="252.0" layoutY="39.0" prefHeight="31.0" prefWidth="754.0" text="https://opendata.ecdc.europa.eu/covid19/casedistribution/xml/" />
+            <Label layoutX="212.0" layoutY="43.0" prefHeight="24.0" prefWidth="40.0" text="URL:" />
+            <TableView fx:id="tableView" layoutX="167.0" layoutY="71.0" prefHeight="201.0" prefWidth="991.0">
+              <columns>
+                <TableColumn fx:id="CountryCol" prefWidth="135.0" text="Country Name" />
+                <TableColumn fx:id="TotalCase" prefWidth="93.99996948242188" text="Total Cases" />
+                  <TableColumn fx:id="NewCase" prefWidth="111.0" text="New Cases" />
+                  <TableColumn fx:id="TotalDeath" prefWidth="96.0" text="Total Deaths" />
+                  <TableColumn fx:id="NewDeath" prefWidth="119.0" text="New Deaths" />
+                  <TableColumn fx:id="Population" prefWidth="129.0" text="Population" />
+                  <TableColumn fx:id="Mortality" prefWidth="149.0" text="Mortality" />
+                  <TableColumn fx:id="AttackRate" prefWidth="157.0" text="Attack Rate" />
+              </columns>
+            </TableView>
+            <LineChart fx:id="lineChart" layoutX="24.0" layoutY="400.0" prefHeight="518.0" prefWidth="551.0">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" fx:id="x1" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </LineChart>
+            <StackedBarChart fx:id="stackedBarChart" layoutX="777.0" layoutY="400.0" prefHeight="518.0" prefWidth="607.0">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" fx:id="x" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </StackedBarChart>
+            <Button layoutX="593.0" layoutY="813.0" mnemonicParsing="false" onAction="#casesButtonClick" prefHeight="40.0" prefWidth="70.0" text="Cases" />
+            <Button layoutX="696.0" layoutY="813.0" mnemonicParsing="false" onAction="#deathsButtonClick" prefHeight="40.0" prefWidth="70.0" text="Deaths" />
+            <ListView fx:id="listView" layoutX="575.0" layoutY="410.0" prefHeight="394.0" prefWidth="200.0" />
+            <Button layoutX="1158.0" layoutY="918.0" mnemonicParsing="false" onAction="#setStackedBarChartbyDeaths" prefHeight="40.0" prefWidth="118.0" text="Show Deaths" />
+            <Button layoutX="968.0" layoutY="918.0" mnemonicParsing="false" onAction="#setStackedBarChart" prefHeight="40.0" prefWidth="118.0" text="Show Cases" />
+         </children>
+      </Pane>
+   </children>
+</GridPane>
